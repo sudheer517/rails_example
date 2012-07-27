@@ -1,6 +1,7 @@
 # encoding: utf-8
 ShopOnRails::Application.routes.draw do
   
+  root :to=>'cart#index'
   get "cart/index"
   
 
