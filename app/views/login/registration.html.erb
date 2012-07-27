@@ -1,0 +1,41 @@
+<div id="registration_form">
+<%= stylesheet_link_tag    "registration_form" %>
+<div id="app_heading1">Registration Form</div><br>
+<table>
+<%=form_tag ("/sub_details") do %>
+<tr>
+<td>User Name:</td>
+<td><%=text_field_tag 'user_name'%>
+</td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><%=password_field_tag 'password'%></td>
+</tr>
+<tr><td>Confirm Password:</td><td><%=password_field_tag 'confirm_password'%></td></tr>
+<tr><td>Date of Birth:</td><td><%=text_field_tag 'dob'%></td></tr>
+<tr><td>Age:</td><td><%=text_field_tag 'age'%></td></tr>
+<tr><td>Gender:</td><td><input type="radio" id="gender">Male
+	      <input type="radio" id="gender">Femal </td></tr>
+<tr><td>Course:</td><td><select id="course">
+<option>ROR</option>
+<option>PHP</option>
+<option>Android</option>
+</select></td></tr>
+<tr><td>Fee:</td><td><%=text_field_tag 'fee'%></td></tr>
+<tr><td>Duration:</td><td><%=text_field_tag 'duration'%></td></tr>
+<tr><td>Description:</td><td><%=text_field_tag 'description'%></td></tr>
+<tr><td>Mail id:</td><td><%=text_field_tag 'mail_id'%></td></tr>
+<tr>
+<td>Qualification:</td><td><select id="qualification">
+<option>B.Tech</option>
+<option>B.E</option>
+<option>M.Tech</option>
+<option>M.E</option>
+</select></td></tr>
+<tr><td><input type="checkbox"></td></tr>
+<tr><td><%=submit_tag 'create'%></td></tr>
+<%end%>
+</table>
+<span id="back" style="margin-left:170px;font-size:17px;"><%= link_to 'Back To Login', :action=>"login" %></span>
+<div>

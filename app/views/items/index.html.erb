@@ -1,0 +1,44 @@
+<%# encoding: utf-8 %>
+<h1>Catalog</h1>
+<script  id='googlecart-script' type='text/javascript' src='https://checkout.google.com/seller/gsc/v2_2/cart.js?mid=916629050618640' integration='jscart-wizard' post-cart-to-sandbox='true' currency='USD' productWeightUnits='LB'></script>
+<table class="catalog">
+<% for item in @items %>
+  <tr>
+    <td>
+        <div class="image">
+            <%=image_tag item.image_url %>
+        </div>
+    </td>
+    <td>
+        <div class="title">
+            <%=item.title%>
+        </div>
+        <div class="description">
+            <%=h item.description %>
+        </div>
+
+        <div class="links">
+            <% if session[:login] == 1 %>
+                <%= link_to 'Edit', edit_item_path(item) %> |
+                <%= link_to 'Destroy', item, :confirm => "r u sure", :method => :delete %>
+				
+            <% else %>
+			<div class="product"><input type="hidden" class="product-title" value="Google galaxy"><input type="hidden" class="product-image" value="C:\Users\venkat\Desktop\shop_on_rails\app\assets\images\galaxy.jpg"><input type="hidden" class="product-price" value="14.99"><div class="googlecart-add-button" tabindex="0" role="button" title="Add to cart"></div></div>
+
+			
+                <!--<%= button_to "Add to Cart", :controller => :Cart, :action => :add, :id => item %>-->
+            <% end %>
+        </div>
+        <div class="price">
+            <%= number_to_currency(item.price, :unit => "&pound;") %>
+        </div>
+    </td>
+   </tr>
+
+<% end %>
+
+</table>
+
+<% if session[:login] == 1 %>
+    <p><%= link_to 'New item', new_item_path %></p>
+<% end %>

@@ -1,0 +1,45 @@
+<%# encoding: utf-8 %>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>Items: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'application', :media => "all"%>
+</head>
+<body>
+	
+    <div id="page">
+      <div id="header">S&S Shopping</div>
+      <div id="nav">
+        <div style="float:left;text-align:left">
+		
+          <%= link_to_unless_current "Home",  :controller => "items", 
+                                                 :action => "index" %> | 
+          <%= link_to_unless_current "About Us",:controller => "site", 
+                                                 :action => "about" %> |
+          <%= link_to_unless_current "Contact Us",:controller => "site", 
+                                                 :action => "contact" %>
+        </div>
+        <div style="text-align:right">
+        
+		  <%= link_to_unless_current "Cart",  :controller => "cart", 
+                                                 :action => "index" %> |
+		   								 
+          <% unless session[:login] %>
+            <%= link_to_unless_current "Admin", :controller => "admin", 
+                                                   :action => "admin_login" %>
+          
+          <% else %>
+            <%= link_to_unless_current "Logout", :controller => "admin", 
+                                                    :action => "logout" %>
+          <% end %>
+        </div>
+      </div>
+      <div id="content">
+      	<% if flash[:notice] -%>
+        	<p style="color: green"><%= flash[:notice] %></p>
+		<% end -%>
+        <%= yield %>
+      </div>
+    </div>
+
+</body>
+</html>

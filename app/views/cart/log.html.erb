@@ -1,0 +1,24 @@
+<div id="login">
+<%= stylesheet_link_tag    "login" %>
+<br>
+<div id="app_heading">Login Page</div><br><br><br>
+<table id="logindetails" align="center">
+<FORM ACTION="pay">
+<%=form_tag('/pay')%>
+<tr>
+<td>Email Id</td>
+<td><%=text_field_tag 'user_name',nil%></td>
+</tr>
+<tr>
+<td>Password</td>
+<td><%=password_field_tag 'password',nil%></td>
+</tr>
+<tr>
+<td></td>
+
+<td><%=submit_tag 'Log In'%><br><br><br><br></td>
+<td><a href="registration" style="margin-left:-166px;color:#4682B4;font-size:13px;" id="registration">Create New Account</a></td>
+
+
+</table>
+</div>
